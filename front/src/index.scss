@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+  margin: auto;
+}
+
+// Variables
+
+$darkGreen: #0b1619;
+$lightGreen: #31989e;
+$pussyGreen: #abeee4;
+$fontFamily: "Roboto Condensed", sans-serif;
+
+$bigger: 19px;
+$regular: 16px;
+$small: 13px;
+
+body {
+  color: $lightGreen;
+  background-color: $darkGreen;
+  font-family: $fontFamily;
+}
+
+a {
+  text-decoration: none;
+  color: $lightGreen;
+
+  &:hover {
+    color: $pussyGreen;
+    text-decoration: underline;
+  }
+}
+
+select {
+  all: unset
+}
+
+option {
+  all: unset;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1.875rem;
+  background-color: $darkGreen;
+
+  & img {
+    width: 5%;
+    height: 5%;
+  }
+
+  & .button-primary {
+    background-color: $lightGreen;
+    width: 10%;
+    color: white;
+    outline: none;
+    border: none;
+    font-size: $bigger;
+    padding: 0.5rem 0.8rem;
+    border-radius: 1.5625rem;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: $pussyGreen;
+      color: $darkGreen;
+      cursor: pointer;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    width: 100%;
+    list-style: none;
+    align-items: center;
+    justify-content: space-around;
+    font-size: $bigger;
+    transition: 0.5s;
+  }
+}
+
+.taskManager {
+  display: grid;
+  place-content: center;
+  padding-top: 5rem;
+}
+
+@import "/src/assets/sass/components/Buttons.scss";
+@import "/src/assets/sass/components/RegisterForm.scss";
+@import "/src/assets/sass/components/TaskList.scss";
+@import "/src/assets/sass/components/Timer.scss";
+@import "/src/assets/sass/pages/InOut.scss";
+@import "/src/assets/sass/pages/Login.scss";
+@import "/src/assets/sass/pages/TaskManager.scss";

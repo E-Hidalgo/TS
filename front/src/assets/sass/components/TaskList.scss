@@ -1,0 +1,44 @@
+.table {
+  width: 1200px;
+  min-width: 1200px;
+
+  &__head {
+    & th {
+      border: 2px solid white;
+      padding: 1rem;
+    }
+  }
+
+  &__body {
+    & tr {
+      & td {
+        border: 2px solid white;
+        padding: 1rem;
+      }
+    }
+
+    & tr:nth-child(even) {
+      background-color: rgba($pussyGreen, 0.6);
+      color: $darkGreen;
+    }
+  }
+
+  &__tools {
+    display: flex;
+
+    & svg {
+      font-size: 36px;
+      padding: 0.3rem;
+      border: 2px solid transparent;
+      border-radius: 50%;
+      transition: 0.5s ease;
+
+      &:hover {
+        background-color: rgba($pussyGreen, 0.1);
+        border: 2px solid $pussyGreen;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+}

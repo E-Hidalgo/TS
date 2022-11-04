@@ -1,0 +1,72 @@
+.login {
+  display: grid;
+  place-content: center;
+  height: 80vh;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    gap: 2rem;
+
+    a {
+      color: $darkGreen;
+
+      &:hover {
+        text-decoration: none;
+        color: $pussyGreen;
+      }
+    }
+
+    background-color: $lightGreen;
+    padding: 2rem 2rem;
+    border-radius: 5px;
+
+    &__control {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      width: 300px;
+      gap: 1rem;
+
+      input {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 0.5rem;
+        border-radius: 5px;
+        color: $darkGreen;
+        font-size: $bigger;
+
+        &:focus {
+          outline: 2px solid $darkGreen;
+          background-color: $pussyGreen;
+        }
+      }
+    }
+
+    &__labels {
+      color: $darkGreen;
+      margin: 0;
+    }
+
+    &__button {
+      background-color: $darkGreen;
+      width: 100%;
+      padding: 0.5rem 1rem;
+      color: white;
+      border: 2px solid transparent;
+      border-radius: 25px;
+      transition: 0.3s ease-in;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $pussyGreen;
+        color: $darkGreen;
+        border: 2px solid $darkGreen;
+      }
+    }
+  }
+}
