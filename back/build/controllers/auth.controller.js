@@ -30,7 +30,11 @@ const signup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const savedUser = yield user.save();
         // TOKEN CREATION
         const token = jsonwebtoken_1.default.sign({ _id: savedUser._id }, process.env.TOKEN_SECRET || "tokentest");
-        res.header("auth-token", token).json(savedUser);
+        res.status(200).json({
+            _id: user.id,
+            email: user.email,
+            token: token
+        });
     }
     catch (error) {
         console.log(error);
@@ -50,9 +54,11 @@ const signin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const token = jsonwebtoken_1.default.sign({ _id: user._id }, process.env.TOKEN_SECRET || "tokentest", {
             expiresIn: 60 * 60 * 24,
         });
-        console.log(user);
-        console.log(token);
-        res.header("auth-token", token).send("logged in");
+        res.status(200).json({
+            _id: user.id,
+            email: user.email,
+            token: token
+        }).send("Logged In");
     }
     catch (error) {
         return console.log(error);
@@ -66,7 +72,9 @@ const profile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const user = yield User_1.default.findById(req.userId);
         if (!user)
             return res.status(404).json("No user found");
-        res.send(user);
+        res.json({
+            user: user
+        });
     }
     catch (error) {
         return console.log(error);

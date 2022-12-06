@@ -15,7 +15,9 @@ const Login = () => {
     console.log(data)
     //FETCH API
     try {
-      await axios.post("http://localhost:4000/api/auth/signin", data)
+     const response = await axios.post("http://localhost:4000/api/auth/signin", data)
+     console.log(response.data)
+
 
       navigate("/dashboard")
 

@@ -22,7 +22,11 @@ export const signup = async (req: Request, res: Response) => {
             { _id: savedUser._id },
             process.env.TOKEN_SECRET || "tokentest"
         );
-        res.header("auth-token", token).json(savedUser);
+        res.status(200).json({
+            _id: user.id,
+            email: user.email,
+            token: token
+        });
     } catch (error) {
         console.log(error);
     }
@@ -47,9 +51,13 @@ export const signin = async (req: Request, res: Response) => {
                 expiresIn: 60 * 60 * 24,
             }
         );
-        console.log(user)
-        console.log(token)
-        res.header("auth-token", token).send("logged in");
+
+        res.status(200).json({
+            _id: user.id,
+            email: user.email,
+            token: token
+        }).send("Logged In");
+
     } catch (error) {
         return console.log(error);
     }
@@ -62,7 +70,9 @@ export const profile = async (req: Request, res: Response) => {
         const user = await User.findById(req.userId);
 
         if (!user) return res.status(404).json("No user found");
-        res.send(user);
+        res.json({
+            user: user
+        });
     } catch (error) {
         return console.log(error);
     }

@@ -4,19 +4,16 @@ import {IUser} from "../services/UserTypes"
 
 const Profile : React.FC = () => {
 
-    const userId = "63622e2cc07d3181349d7f03"
 
     const [user, setUser] = useState<IUser>()
 
     const getProfile = async () => {
-
-
         try {
-            const userProfile = await axios.get(`http://localhost:4000/api/profile`)
+            const userProfile = await axios.get(`http://localhost:4000/api/auth/profile`)
             console.log(userProfile)
 
             setUser(userProfile.data)
-            
+
         } catch (error) {
             console.log(error);
         }
@@ -25,7 +22,7 @@ const Profile : React.FC = () => {
     useEffect(() => {
       getProfile()
     }, [])
-    
+
     return (
         <div>
             <h5>Name</h5>
